@@ -1,0 +1,27 @@
+A Match: A player makes a match if the two cards turned picture-side-up are identical.
+
+When a match is made, the player takes both cards and places them in front of him or her.
+That player then takes another turn, and continues taking turns until he or she misses.
+
+A Miss: A player misses if the two cards turned over are not identical.
+When a player misses, he or she turns the two cards picture-side-down again,
+in the same place.
+
+That player's turn ends-and all players try to remember which cards were turned over,
+for future matches.
+
+
+The game continues until all cards have been matched and removed from the playing area.
+
+In turn, each player chooses two cards and turns them face up.
+If they are of the same rank and color (e.g. six of hearts and six of diamonds,
+queen of clubs and queen of spades, or both jokers, if used)
+then that player wins the pair and plays again.
+If they are not of the same rank and color,
+they are turned face down again and play passes to the player on the left.
+Rules can be changed here too:
+it can be agreed before the game starts that matching pairs be any two cards of the same rank,
+a color-match being unnecessary, or that the match must be both rank and card suit.
+
+The game ends when the last pair has been picked up
+
