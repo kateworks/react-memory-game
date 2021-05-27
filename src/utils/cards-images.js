@@ -18,7 +18,22 @@ import link17 from '../images/cards/card-image-17.png';
 import link18 from '../images/cards/card-image-18.png';
 
 export const cardsImages = [
-  link01, link02, link03, link04, link05, link06,
-  link07, link08, link09, link10, link11, link12,
-  link13, link14, link15, link16, link17, link18,
+  { link: link01, text: 'Green Apple' },
+  { link: link02, text: 'A Raspberry' },
+  { link: link03, text: 'Two Cherries' },
+  { link: link04, text: 'A Strawberry' },
+  { link: link05, text: 'A Watermelon' },
+  { link: link06, text: 'An Apricot' },
+  { link: link07, text: 'Kiwi' },
+  { link: link08, text: 'Pomegranate' },
+  { link: link09, text: 'Green Grapes' },
+  { link: link10, text: 'Bananas' },
+  { link: link11, text: 'Red Apple' },
+  { link: link12, text: 'Oranges' },
+  { link: link13, text: 'Two plums' },
+  { link: link14, text: 'Two blueberries' },
+  { link: link15, text: 'Mango' },
+  { link: link16, text: 'Raspberries' },
+  { link: link17, text: 'Two Blackberries' },
+  { link: link18, text: 'Red Grapes' },
 ];

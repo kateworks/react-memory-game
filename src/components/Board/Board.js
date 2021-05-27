@@ -6,11 +6,27 @@ import './Board.css';
 
 function Board(props) {
   const [ cardsList, setCardsList ] = useState([]);
+  //const [ visibleCardsNumber, setVisibleCardsNumber ] = useState(0);
+
+  const handleClick = (card) => {
+    if (card.isVisible) {
+      if (!card.isOpen) {
+        const newCardsList = cardsList.map((item) => (
+          item.id === card.id ? {...item, isOpen : true} : item
+        ));
+        setCardsList(newCardsList);
+      }
+    }
+  };
 
   const showCardsList = (cards) => {
     if (cards.length > 0) {
-      return cards.map((card) => (
-        <Card key={card.id} link={card.link}/>
+      return cards.map((oneCard) => (
+        <Card
+          key={oneCard.id}
+          card={oneCard}
+          onClick={handleClick}
+        />
       ));
     }
   };
@@ -21,8 +37,10 @@ function Board(props) {
       const numberArray = createShuffledArray(18);
 
       numberArray.forEach((item, index) => {
-        const link = cardsImages[item - 1];
-        cardsArray.push({ id: index, link });
+        const { link, text } = cardsImages[item - 1];
+        cardsArray.push({
+          id: index, number: item, link, text, isVisible: true, isOpen: false
+        });
       });
 
       return cardsArray;

@@ -1,15 +1,24 @@
 import React from 'react';
 import './Card.css';
 
-function Card(props) {
-  return (
-    <article className="card">
-      <div className="card__container">
-        <img className="card__front" src={props.link} alt={props.link}/>
-        <div className="card__back"/>
-      </div>
-    </article>
-  );
+function Card({ card, onClick }) {
+
+  const handleClick = () => {
+    onClick(card);
+  };
+
+  if (card.isVisible) {
+    return (
+      <article className="card" onClick={handleClick}>
+        <div className={`card__container${card.isOpen ? ' card_open' : ''}`}>
+          <div className="card__front"/>
+          <img className="card__back" src={card.link} alt={card.text}/>
+        </div>
+      </article>
+    );
+  } else {
+    return (<React.Fragment/>);
+  }
 }
 
 export default Card;
