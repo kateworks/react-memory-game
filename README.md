@@ -7,7 +7,7 @@ A simple game to test and improve a player’s memory, implemented using React.
 
 ## How to play
 
-There are 18 paired cards on the board with different pictures on them.\
+There are 18 paired cards on the board 6x6 with different pictures on them.\
 When a player pushes Start button, the timer starts.\
 The player can open a card and then (in 5 seconds) -- another card.\
 If the pictures on the cards are identical, they disappear from the board,
