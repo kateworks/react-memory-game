@@ -17,7 +17,11 @@ function Card({ card, onClick }) {
       </article>
     );
   } else {
-    return (<React.Fragment/>);
+    return (
+      <article className="card">
+        <div className="card__empty" />
+      </article>
+    );
   }
 }
 
