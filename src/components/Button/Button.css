@@ -1,0 +1,15 @@
+.button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: .7s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+}
