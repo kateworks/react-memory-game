@@ -4,16 +4,17 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: 300px;
-  min-width: 100px;
+  min-height: 12vmin;
+  max-width: 80vmin;
+  min-width: 312px;
 
   padding: 10px;
   margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row nowrap;
 }
 
 .controls__btn {
@@ -24,11 +25,11 @@
 
   display: block;
   width: 100%;
-  height: 60px;
 
   background-color: #e6e6e6;
   border: 1px solid #999;
   border-radius: 5px;
+
 }
 
 .controls__btn:hover {
@@ -37,17 +38,21 @@
 
 .controls__btn + .controls__btn {
   margin: 0;
-  margin-top: 10px;
+  margin-left: 10px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 500px) {
   .controls {
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     margin-bottom: 30px;
+  }
+
+  .controls__btn {
+    height: 40px;
   }
 
   .controls__btn + .controls__btn {
     margin: 0;
-    margin-left: 5px;
+    margin-top: 10px;
   }
 }
