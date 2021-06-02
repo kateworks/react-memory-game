@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Card from '../Card/Card';
 import { createShuffledArray } from '../../utils/array';
 import { cardsImages } from '../../utils/cards-images';
+import { BOARD_SIZE } from '../../utils/const';
 import './Board.css';
-
-const BOARD_SIZE = 36;
 
 function Board(props) {
   const [ cardsList, setCardsList ] = useState([]);
