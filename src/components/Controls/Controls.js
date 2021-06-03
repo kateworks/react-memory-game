@@ -13,23 +13,34 @@ function Controls(props) {
     props.onStopGame();
   };
 
+  const handleResultsClick = () => {
+    console.log('Results');
+  };
+
   return(
     <nav className="controls">
-      <Button
-        userClass="controls__btn"
-        disabled={props.isGameOn}
-        onClick={handleStartClick}
-      >
-        Start
-      </Button>
+      <div className="controls__btn-container">
+        <Button
+          userClass="controls__btn controls__btn_start"
+          disabled={props.isGameOn}
+          onClick={handleStartClick}
+          title="Start game"
+        />
 
-      <Button
-        userClass="controls__btn"
-        disabled={!props.isGameOn}
-        onClick={handleStopClick}
-      >
-        Pause
-      </Button>
+        <Button
+          userClass="controls__btn controls__btn_pause"
+          disabled={!props.isGameOn}
+          onClick={handleStopClick}
+          title="Pause game"
+        />
+
+        <Button
+          userClass="controls__btn controls__btn_results"
+          disabled={props.isGameOn}
+          onClick={handleResultsClick}
+          title="View results table"
+        />
+      </div>
 
       <div className="controls__time-container">
         <StopWatch
