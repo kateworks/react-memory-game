@@ -28,7 +28,7 @@ function Controls(props) {
         disabled={!props.isGameOn}
         onClick={handleStopClick}
       >
-        Stop
+        Pause
       </Button>
 
       <div className="controls__time-container">

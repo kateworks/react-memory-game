@@ -15,22 +15,21 @@ function MainScreen() {
 
   useEffect(() => {
 
-    const controlGame = () => {
+    const controlGame = (timeInterval) => {
       return new Promise((resolve, reject) => {
-        setTimeCounter(0);
-        const timeInterval = 1000;
         const startTime = Date.now();
         let expected = startTime + timeInterval;
+        let secondsCount = 0;
 
         const next = () => {
           if (winStatusRef.current) {
-            resolve();
+            resolve(secondsCount);
           } else if (!gameStatusRef.current) {
-            reject();
+            reject(secondsCount);
           } else {
             const dt = Date.now() - expected;
             if (dt < timeInterval) {
-              const secondsCount = Math.floor((expected - startTime) / 1000);
+              secondsCount = Math.floor((expected - startTime) / 1000);
               setTimeCounter(secondsCount);
               expected += timeInterval;
               setTimeout(next, Math.max(0, timeInterval - dt));
@@ -42,24 +41,30 @@ function MainScreen() {
     };
 
     if (gameStatus) {
-      controlGame()
-      .then(() => {
-        console.log('Success');
+      controlGame(1000)
+      .then((result) => {
+        console.log('Success ', result);
       })
-      .catch(() => {
-        console.log('Stop');
+      .catch((result) => {
+        console.log('Stop', result);
     });
   }
 
   }, [gameStatus, winStatus]);
 
   const handleStartGame = () => {
+    // new game: winStatus, board
+    setTimeCounter(0);
     setGameStatus(true);
   };
 
   const handleStopGame = () => {
     setGameStatus(false);
-    //setWinStatus(true);
+  };
+
+  const handleWinning = () => {
+    setGameStatus(false);
+    setWinStatus(true);
   };
 
   return (
@@ -70,7 +75,8 @@ function MainScreen() {
         isGameOn={gameStatus}
         timeCounter={timeCounter}
       />
-      <Board />
+      <Board onWin={handleWinning} isGameOn={gameStatus}/>
+
     </div>
   );
 }

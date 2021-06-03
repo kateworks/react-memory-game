@@ -26,8 +26,17 @@ function Board(props) {
 
   useEffect(() => {
     if (score === BOARD_SIZE) {
-      console.log('Success');
-    }
+      props.onWin();
+      const numberArray = createShuffledArray(BOARD_SIZE / 2);
+      const cardsArray = numberArray.map((item, index) => {
+        const { link, text } = cardsImages[item - 1];
+        return ({
+          id: index, number: item, link, text, isVisible: true, isOpen: false,
+        });
+      });
+      setCardsList(cardsArray);
+      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score]);
 
   useEffect(() => {
@@ -119,7 +128,7 @@ function Board(props) {
   };
 
   return (
-    <section className="board">
+    <section className={`board ${props.isGameOn ? 'board_enabled' : 'board_disabled'}`}>
       <div className="board__cards-container">
         {getCardsList(cardsList)}
       </div>

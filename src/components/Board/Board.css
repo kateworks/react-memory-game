@@ -21,6 +21,16 @@
   margin: 0;
 }
 
+.board_enabled {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.board_disabled {
+  pointer-events: none;
+  opacity: .5;
+}
+
 .board__cards-container {
   width: 100%;
   height: 100%;
