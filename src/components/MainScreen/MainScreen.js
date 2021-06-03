@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Board from '../Board/Board';
 import Controls from '../Controls/Controls';
+import Form from '../Form/Form';
 import './MainScreen.css';
 
 function MainScreen() {
   const [ gameStatus, setGameStatus ] = useState(false);
   const [ timeCounter, setTimeCounter ] = useState(0);
   const [ winStatus, setWinStatus ] = useState(false);
+  const [ areResultsVisible, setAreResultsVisible ] = useState(false);
 
   const gameStatusRef = useRef(gameStatus);
   const winStatusRef = useRef(winStatus);
@@ -53,7 +55,6 @@ function MainScreen() {
   }, [gameStatus, winStatus]);
 
   const handleStartGame = () => {
-    // new game: winStatus, board
     setTimeCounter(0);
     setGameStatus(true);
   };
@@ -67,15 +68,22 @@ function MainScreen() {
     setWinStatus(true);
   };
 
+  const handleResultsClick = () => {
+    setAreResultsVisible(true);
+  };
+
   return (
     <div className="main">
       <Controls
         onStartGame={handleStartGame}
         onStopGame={handleStopGame}
+        onResultsClick={handleResultsClick}
         isGameOn={gameStatus}
         timeCounter={timeCounter}
       />
       <Board onWin={handleWinning} isGameOn={gameStatus}/>
+
+      { areResultsVisible && <Form />}
 
     </div>
   );

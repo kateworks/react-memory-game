@@ -14,7 +14,7 @@ function Controls(props) {
   };
 
   const handleResultsClick = () => {
-    console.log('Results');
+    props.onResultsClick();
   };
 
   return(
