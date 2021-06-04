@@ -9,7 +9,6 @@ import './MainScreen.css';
 function MainScreen() {
   const [ gameStatus, setGameStatus ] = useState(false);
   const [ winStatus, setWinStatus ] = useState(false);
-
   const [ timeCounter, setTimeCounter ] = useState(0);
   const [ savedTime, setSavedTime ] = useState(0);
   const [ areResultsVisible, setAreResultsVisible ] = useState(false);
@@ -50,11 +49,12 @@ function MainScreen() {
     if (gameStatus) {
       controlGame(1000)
       .then((result) => {
-        console.log('Success ', result);
+        // console.log('Success ', result);
         setSavedTime(0);
+        setIsFormVisible(true);
       })
       .catch((result) => {
-        console.log('Stop', result);
+        // console.log('Pause ', result);
         setSavedTime(result);
       });
     }
@@ -73,27 +73,22 @@ function MainScreen() {
   const handleWinning = () => {
     setGameStatus(false);
     setWinStatus(true);
-    setIsFormVisible(true);
-    setTimeCounter(0);
   };
 
   const handleResultsClick = () => {
     setAreResultsVisible(true);
   };
 
-  const handleTimeClick = () => {
-    handleWinning();
-  };
-
   // Save new result (name, time) to local storage
-  const handleSubmitName = (name) => {
+  const handleSubmitName = (name, time) => {
     let results = [];
     if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
       results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     }
-    results.push({ name, time: savedTime });
+    results.push({ name, time });
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(results));
     setIsFormVisible(false);
+    setTimeCounter(0);
   };
 
   // Close results table
@@ -107,7 +102,6 @@ function MainScreen() {
         onStartGame={handleStartGame}
         onStopGame={handleStopGame}
         onResultsClick={handleResultsClick}
-        onTimeClick={handleTimeClick}
         isGameOn={gameStatus}
         timeCounter={timeCounter}
       />
@@ -115,7 +109,7 @@ function MainScreen() {
 
       {
         isFormVisible &&
-        <FormInput onSubmitName={handleSubmitName} result={savedTime}/>
+        <FormInput onSubmitName={handleSubmitName} result={timeCounter}/>
       }
       {
         areResultsVisible &&

@@ -17,10 +17,6 @@ function Controls(props) {
     props.onResultsClick();
   };
 
-  const handleTimeClick = () => {
-    props.onTimeClick();
-  };
-
   return(
     <nav className="controls">
       <div className="controls__btn-container">
@@ -46,11 +42,7 @@ function Controls(props) {
         />
       </div>
 
-      <div
-        className="controls__time-container"
-        title="Double click to sneak a peek"
-        onDoubleClick={handleTimeClick}
-      >
+      <div className="controls__time-container">
         <StopWatch
           className="controls__time"
           timeCounter={props.timeCounter}

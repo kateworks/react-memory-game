@@ -11,7 +11,7 @@ function FormInput(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onSubmitName(name);
+    props.onSubmitName(name, props.result);
   };
 
   return (

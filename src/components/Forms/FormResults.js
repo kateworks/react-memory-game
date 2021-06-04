@@ -37,6 +37,7 @@ function FormResults(props) {
 
   const getResults = (array) => {
     if (array.length > 0) {
+      array.sort((a, b) => (a.time - b.time));
       return (
         <ul className="form__list">
           {
