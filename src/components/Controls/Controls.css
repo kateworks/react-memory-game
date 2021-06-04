@@ -90,6 +90,7 @@
 
 .controls__time {
   font-family: 'Courier New', Courier, monospace;
+  user-select: none;
 }
 
 @media screen and (max-width: 500px) {

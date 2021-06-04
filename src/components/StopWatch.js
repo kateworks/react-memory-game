@@ -16,7 +16,9 @@ function StopWatch(props) {
   };
 
   return (
-    <span className={props.className}>{displayTime(props.timeCounter)}</span>
+    <span className={props.className}>
+      {displayTime(props.timeCounter)}
+    </span>
   );
 }
 

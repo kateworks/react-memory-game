@@ -6,10 +6,12 @@ import './MainScreen.css';
 
 function MainScreen() {
   const [ gameStatus, setGameStatus ] = useState(false);
+  const [ winStatus, setWinStatus ] = useState(false);
+
   const [ timeCounter, setTimeCounter ] = useState(0);
   const [ prevTime, setPrevTime ] = useState(0);
-  const [ winStatus, setWinStatus ] = useState(false);
   const [ areResultsVisible, setAreResultsVisible ] = useState(false);
+  const [ isFormVisible, setIsFormVisible ] = useState(false);
 
   const gameStatusRef = useRef(gameStatus);
   const winStatusRef = useRef(winStatus);
@@ -52,8 +54,8 @@ function MainScreen() {
       .catch((result) => {
         console.log('Stop', result);
         setPrevTime(result);
-    });
-  }
+      });
+    }
 
   }, [gameStatus, winStatus, prevTime]);
 
@@ -69,11 +71,21 @@ function MainScreen() {
   const handleWinning = () => {
     setGameStatus(false);
     setWinStatus(true);
+    setIsFormVisible(true);
     setTimeCounter(0);
   };
 
   const handleResultsClick = () => {
     setAreResultsVisible(true);
+  };
+
+  const handleTimeClick = () => {
+    handleWinning();
+  };
+
+  const handleSubmit = () => {
+    console.log('Submit');
+    setIsFormVisible(false);
   };
 
   return (
@@ -82,12 +94,13 @@ function MainScreen() {
         onStartGame={handleStartGame}
         onStopGame={handleStopGame}
         onResultsClick={handleResultsClick}
+        onTimeClick={handleTimeClick}
         isGameOn={gameStatus}
         timeCounter={timeCounter}
       />
       <Board onWin={handleWinning} isGameOn={gameStatus}/>
 
-      { areResultsVisible && <Form />}
+      { isFormVisible && <Form onSubmitName={handleSubmit} result={prevTime}/>}
 
     </div>
   );
