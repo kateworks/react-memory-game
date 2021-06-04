@@ -5,6 +5,11 @@
 A simple game to test and improve a player’s memory, implemented using React.
 
 
+## Demo
+
+https://kateworks.github.io/react-memory-game/
+
+
 ## How to play
 
 There are 18 paired cards on the board 6x6 with different pictures on them.\
