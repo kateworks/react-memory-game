@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Board from '../Board/Board';
 import Controls from '../Controls/Controls';
 import Form from '../Form/Form';
+import { LOCAL_STORAGE_KEY } from '../../utils/const';
 import './MainScreen.css';
 
 function MainScreen() {
@@ -9,7 +10,7 @@ function MainScreen() {
   const [ winStatus, setWinStatus ] = useState(false);
 
   const [ timeCounter, setTimeCounter ] = useState(0);
-  const [ prevTime, setPrevTime ] = useState(0);
+  const [ savedTime, setSavedTime ] = useState(0);
   const [ areResultsVisible, setAreResultsVisible ] = useState(false);
   const [ isFormVisible, setIsFormVisible ] = useState(false);
 
@@ -34,7 +35,7 @@ function MainScreen() {
           } else {
             const dt = Date.now() - expected;
             if (dt < timeInterval) {
-              secondsCount = prevTime + Math.floor((expected - startTime) / 1000);
+              secondsCount = savedTime + Math.floor((expected - startTime) / 1000);
               setTimeCounter(secondsCount);
               expected += timeInterval;
               setTimeout(next, Math.max(0, timeInterval - dt));
@@ -49,15 +50,15 @@ function MainScreen() {
       controlGame(1000)
       .then((result) => {
         console.log('Success ', result);
-        setPrevTime(0);
+        setSavedTime(0);
       })
       .catch((result) => {
         console.log('Stop', result);
-        setPrevTime(result);
+        setSavedTime(result);
       });
     }
 
-  }, [gameStatus, winStatus, prevTime]);
+  }, [gameStatus, winStatus, savedTime]);
 
   const handleStartGame = () => {
     setGameStatus(true);
@@ -83,8 +84,13 @@ function MainScreen() {
     handleWinning();
   };
 
-  const handleSubmit = () => {
-    console.log('Submit');
+  const handleSubmit = (name) => {
+    let results = [];
+    if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
+      results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    }
+    results.push({ name, time: savedTime });
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(results));
     setIsFormVisible(false);
   };
 
@@ -100,7 +106,7 @@ function MainScreen() {
       />
       <Board onWin={handleWinning} isGameOn={gameStatus}/>
 
-      { isFormVisible && <Form onSubmitName={handleSubmit} result={prevTime}/>}
+      { isFormVisible && <Form onSubmitName={handleSubmit} result={savedTime}/>}
 
     </div>
   );
