@@ -7,6 +7,7 @@ import './MainScreen.css';
 function MainScreen() {
   const [ gameStatus, setGameStatus ] = useState(false);
   const [ timeCounter, setTimeCounter ] = useState(0);
+  const [ prevTime, setPrevTime ] = useState(0);
   const [ winStatus, setWinStatus ] = useState(false);
   const [ areResultsVisible, setAreResultsVisible ] = useState(false);
 
@@ -31,7 +32,7 @@ function MainScreen() {
           } else {
             const dt = Date.now() - expected;
             if (dt < timeInterval) {
-              secondsCount = Math.floor((expected - startTime) / 1000);
+              secondsCount = prevTime + Math.floor((expected - startTime) / 1000);
               setTimeCounter(secondsCount);
               expected += timeInterval;
               setTimeout(next, Math.max(0, timeInterval - dt));
@@ -46,17 +47,19 @@ function MainScreen() {
       controlGame(1000)
       .then((result) => {
         console.log('Success ', result);
+        setPrevTime(0);
       })
       .catch((result) => {
         console.log('Stop', result);
+        setPrevTime(result);
     });
   }
 
-  }, [gameStatus, winStatus]);
+  }, [gameStatus, winStatus, prevTime]);
 
   const handleStartGame = () => {
-    setTimeCounter(0);
     setGameStatus(true);
+    setWinStatus(false);
   };
 
   const handleStopGame = () => {
@@ -66,6 +69,7 @@ function MainScreen() {
   const handleWinning = () => {
     setGameStatus(false);
     setWinStatus(true);
+    setTimeCounter(0);
   };
 
   const handleResultsClick = () => {
