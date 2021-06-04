@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/react-memory-game/static/css/main.a24573cb.chunk.css",
+    "main.js": "/react-memory-game/static/js/main.9a026906.chunk.js",
+    "main.js.map": "/react-memory-game/static/js/main.9a026906.chunk.js.map",
+    "runtime-main.js": "/react-memory-game/static/js/runtime-main.e98a4b32.js",
+    "runtime-main.js.map": "/react-memory-game/static/js/runtime-main.e98a4b32.js.map",
+    "static/js/2.fa36e957.chunk.js": "/react-memory-game/static/js/2.fa36e957.chunk.js",
+    "static/js/2.fa36e957.chunk.js.map": "/react-memory-game/static/js/2.fa36e957.chunk.js.map",
+    "index.html": "/react-memory-game/index.html",
+    "static/css/main.a24573cb.chunk.css.map": "/react-memory-game/static/css/main.a24573cb.chunk.css.map",
+    "static/js/2.fa36e957.chunk.js.LICENSE.txt": "/react-memory-game/static/js/2.fa36e957.chunk.js.LICENSE.txt",
+    "static/media/card-image-01.45ef628e.png": "/react-memory-game/static/media/card-image-01.45ef628e.png",
+    "static/media/card-image-02.35a258e2.png": "/react-memory-game/static/media/card-image-02.35a258e2.png",
+    "static/media/card-image-03.9c5f23f5.png": "/react-memory-game/static/media/card-image-03.9c5f23f5.png",
+    "static/media/card-image-04.4a4fbc39.png": "/react-memory-game/static/media/card-image-04.4a4fbc39.png",
+    "static/media/card-image-05.54957fb2.png": "/react-memory-game/static/media/card-image-05.54957fb2.png",
+    "static/media/card-image-06.a5a689d7.png": "/react-memory-game/static/media/card-image-06.a5a689d7.png",
+    "static/media/card-image-07.5a656dad.png": "/react-memory-game/static/media/card-image-07.5a656dad.png",
+    "static/media/card-image-08.ccf7bd68.png": "/react-memory-game/static/media/card-image-08.ccf7bd68.png",
+    "static/media/card-image-09.c3f6772a.png": "/react-memory-game/static/media/card-image-09.c3f6772a.png",
+    "static/media/card-image-10.ac650359.png": "/react-memory-game/static/media/card-image-10.ac650359.png",
+    "static/media/card-image-11.e32afd60.png": "/react-memory-game/static/media/card-image-11.e32afd60.png",
+    "static/media/card-image-12.8ccb386f.png": "/react-memory-game/static/media/card-image-12.8ccb386f.png",
+    "static/media/card-image-13.3f542bc6.png": "/react-memory-game/static/media/card-image-13.3f542bc6.png",
+    "static/media/card-image-14.919afb5b.png": "/react-memory-game/static/media/card-image-14.919afb5b.png",
+    "static/media/card-image-15.7a42cdd4.png": "/react-memory-game/static/media/card-image-15.7a42cdd4.png",
+    "static/media/card-image-16.16178969.png": "/react-memory-game/static/media/card-image-16.16178969.png",
+    "static/media/card-image-17.f89ab31f.png": "/react-memory-game/static/media/card-image-17.f89ab31f.png",
+    "static/media/card-image-18.a47de00f.png": "/react-memory-game/static/media/card-image-18.a47de00f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e98a4b32.js",
+    "static/js/2.fa36e957.chunk.js",
+    "static/css/main.a24573cb.chunk.css",
+    "static/js/main.9a026906.chunk.js"
+  ]
+}
