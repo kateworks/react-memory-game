@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './Form.css';
 
-function Form(props) {
+function FormInput(props) {
   const [ name, setName ] = useState('');
 
   const handleChange = (e) => {
@@ -42,4 +42,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default FormInput;

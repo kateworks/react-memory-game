@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Board from '../Board/Board';
 import Controls from '../Controls/Controls';
-import Form from '../Form/Form';
+import FormInput from '../Forms/FormInput';
+import FormResults from '../Forms/FormResults';
 import { LOCAL_STORAGE_KEY } from '../../utils/const';
 import './MainScreen.css';
 
@@ -84,7 +85,8 @@ function MainScreen() {
     handleWinning();
   };
 
-  const handleSubmit = (name) => {
+  // Save new result (name, time) to local storage
+  const handleSubmitName = (name) => {
     let results = [];
     if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
       results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -92,6 +94,11 @@ function MainScreen() {
     results.push({ name, time: savedTime });
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(results));
     setIsFormVisible(false);
+  };
+
+  // Close results table
+  const handleSubmitResults = () => {
+    setAreResultsVisible(false);
   };
 
   return (
@@ -106,7 +113,14 @@ function MainScreen() {
       />
       <Board onWin={handleWinning} isGameOn={gameStatus}/>
 
-      { isFormVisible && <Form onSubmitName={handleSubmit} result={savedTime}/>}
+      {
+        isFormVisible &&
+        <FormInput onSubmitName={handleSubmitName} result={savedTime}/>
+      }
+      {
+        areResultsVisible &&
+        <FormResults onSubmitResults={handleSubmitResults}/>
+      }
 
     </div>
   );
